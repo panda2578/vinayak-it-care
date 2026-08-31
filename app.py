@@ -1,87 +1,126 @@
-from flask import Flask
+from flask import Flask, render_template_string
+
 app = Flask(__name__)
 
-HTML = """
+HTML_PAGE = """
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shree Vinayak IT Care</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHREE VINAYAK IT CARE - Professional Repair Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#0a1220;color:#fff;font-family:Arial}
-.header{background:#0a1220;padding:12px 20px;display:flex;justify-content:space-between;border-bottom:1px solid #333}
-.logo{display:flex;align-items:center;gap:12px}
-.logo h1{margin:0;font-size:22px;line-height:1.1} .logo span{color:#ff6a00}
-.sub{font-size:13px} .sub2{font-size:12px;color:#ffcc00}
-.topinfo{display:flex;gap:18px;font-size:11px;margin-top:10px;flex-wrap:wrap}
-.loginbox{background:#111a2b;border:1px solid #333;border-radius:12px;padding:18px;width:300px}
-.loginbox input{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #333;background:#1a2438;color:#fff}
-.btn{background:linear-gradient(90deg,#ff5a00,#ff8a00);border:none;padding:10px;width:100%;border-radius:8px;color:#fff;font-weight:bold;margin-top:10px}
-.welcome{text-align:center;padding:25px}
-.welcome h2{margin:0} .welcome h1{color:#ff6a00;margin:5px 0}
-.catalog{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:12px}
-@media(max-width:800px){.catalog{grid-template-columns:1fr 1fr} .header{flex-direction:column} .loginbox{width:auto}}
-.card{border-radius:14px;padding:14px;position:relative;min-height:140px}
-.card h3{margin:8px 0 4px;font-size:14px} .card p{font-size:11px;opacity:.8;margin:0}
-.explore{position:absolute;bottom:12px;right:12px;border:1px solid #ffffff55;padding:4px 10px;border-radius:16px;font-size:11px}
-.blue{background:linear-gradient(135deg,#0d2a5a,#123a7a)} .green{background:linear-gradient(135deg,#0a4a2e,#126b44)}
-.purple{background:linear-gradient(135deg,#3a1a5a,#5a2a8a)} .orange{background:linear-gradient(135deg,#7a2a0a,#a9441a)}
-.teal{background:linear-gradient(135deg,#0a4a4a,#126a6a)} .gold{background:linear-gradient(135deg,#5a4a0a,#7a651a)}
-.study{border:1px solid #333;border-radius:14px;margin:12px;padding:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-</style>
-</head>
-<body>
-<div class="header">
-  <div>
-    <div class="logo">
-      <div style="font-size:36px">🕉️</div>
-      <div><h1>SHREE VINAYAK<br><span>IT CARE</span></h1><div class="sub">Laptop Repair Database & Board Viewer</div><div class="sub2">Repair | Restore | Resolve</div></div>
-    </div>
-    <div class="topinfo">
-      <div>🛡️ 19+ Years Of Experience</div>
-      <div>📍 Bhubaneswar, Odisha India</div>
-      <div>📞 +91 9437 60 1000 Call / WhatsApp</div>
-      <div>✉️ info@shreevinayakitcare.com Support</div>
-    </div>
-  </div>
-  <div class="loginbox">
-    <div>🔒 LOGIN</div>
-    <input placeholder="👤 Username"><input placeholder="🔒 Password" type="password">
-    <div style="font-size:11px;display:flex;justify-content:space-between;margin-top:6px"><label><input type="checkbox"> Remember Me</label><span style="color:#ffcc00">Forgot Password?</span></div>
-    <button class="btn">LOGIN →</button>
-    <div style="text-align:center;font-size:11px;margin-top:8px">New User? <span style="color:#ffcc00">Create an Account</span></div>
-  </div>
-</div>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter', sans-serif;
+  color:#eaf0ff;
+  background: radial-gradient(1200px 600px at 10% -10%, #ff7a0022, transparent),
+              radial-gradient(1000px 500px at 90% 10%, #0066ff22, transparent),
+              linear-gradient(180deg, #070f1f 0%, #0a162d 50%, #08111e 100%);
+  min-height:100vh; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:-50%;
+  background: conic-gradient(from 0deg, #ff7a0011, #00d4ff11, #ff7a0011);
+  animation: rotateBg 20s linear infinite;
+  z-index:-1; filter:blur(40px);
+}
+@keyframes rotateBg{ to{transform:rotate(360deg)} }
 
-<div class="welcome">
-  <h2>WELCOME</h2><div>TO</div><h1>SHREE VINAYAK IT CARE</h1>
-  <p style="font-size:13px;opacity:.7">Your One Stop Solution for Chip-Level Repairing, Board Diagnostics,<br>Component Search, and Technical Learning Resources.</p>
-  <div>— REPAIR CATALOGUE —</div>
-</div>
+.container{max-width:1280px;margin:0 auto;padding:12px}
 
-<div class="catalog">
-  <div class="card blue"><div>💻</div><h3>LAPTOP REPAIR</h3><p>All Brands Supported<br>Chip-Level Repairing</p><div class="explore">Explore →</div></div>
-  <div class="card green"><div>🖥️</div><h3>DESKTOP REPAIR</h3><p>Motherboard & Component Level Repairing</p><div class="explore">Explore →</div></div>
-  <div class="card purple"><div>🖨️</div><h3>PRINTER REPAIR</h3><p>Laser, Inkjet, All-in-One Printer Solutions</p><div class="explore">Explore →</div></div>
-  <div class="card orange"><div>📱</div><h3>MOBILE / TABLET REPAIR</h3><p>Hardware & Software Solutions</p><div class="explore">Explore →</div></div>
-  <div class="card teal"><div>💾</div><h3>DATA RECOVERY</h3><p>Recover Deleted, Formatted & Lost Data</p><div class="explore">Explore →</div></div>
-  <div class="card gold"><div>⚡</div><h3>POWER SUPPLY REPAIR</h3><p>SMPS, Adapter, DC Supply Repair & Fix</p><div class="explore">Explore →</div></div>
-</div>
+.topbar{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+  border:1.5px solid #ff7a00; border-radius:14px; padding:12px 18px;
+  background: rgba(16,29,51,0.85); backdrop-filter: blur(10px);
+}
+.brand{font-weight:900; font-size:18px; letter-spacing:0.5px}
+.brand span{color:#ff7a00}
+.contact{font-size:11px; opacity:0.85; display:flex; gap:15px; flex-wrap:wrap}
 
-<div class="study">
-  <div style="flex:1"><h3 style="margin:0">STUDY MATERIAL</h3><div style="color:#4da6ff;font-size:13px">Learn | Practice | Master</div><p style="font-size:11px">Access Schematics, BoardViews, Repair Guides, eBooks, and Technical Notes.</p><div class="explore" style="position:static;display:inline-block">Explore Study Material →</div></div>
-  <div style="display:flex;gap:10px"><div style="background:#fff;color:#000;padding:10px;border-radius:8px;font-size:10px;text-align:center">SCH<br>Schematics</div><div style="background:#333;padding:10px;border-radius:8px;font-size:10px;text-align:center">Board<br>Board Views</div><div style="background:#fff;color:#000;padding:10px;border-radius:8px;font-size:10px;text-align:center">PDF<br>Repair Guides</div><div style="background:#222;padding:10px;border-radius:8px;font-size:10px;text-align:center">📚<br>eBooks & Notes</div></div>
-</div>
+.main{
+  display:grid; grid-template-columns: 1.8fr 0.9fr; gap:16px; margin-top:16px;
+}
+.left h2{font-size:24px; font-weight:800}
+.subline{
+  margin:8px 0 16px; font-size:12px; color:#8aa0c6;
+  border-top:2px solid #ff7a00; display:inline-block; padding-top:6px;
+}
+.services{
+  display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;
+}
+.card{
+  background: rgba(16,29,51,0.9); border:1px solid #23365e; border-radius:14px;
+  padding:16px; display:flex; gap:12px; align-items:center;
+  transition: all 0.3s ease; cursor:pointer;
+}
+.card:hover{border-color:#ff7a00; transform: translateY(-3px); box-shadow: 0 8px 25px #ff7a0033}
+.icon{
+  min-width:56px; height:56px; border-radius:12px; display:grid; place-items:center;
+  background: linear-gradient(135deg, #0f2240, #122a50); font-size:26px; border:1px solid #1e3a64
+}
+.card h3{font-size:13px; font-weight:800; letter-spacing:0.3px}
+.card p{font-size:11px; color:#8aa0c6; margin-top:3px}
 
-<div style="text-align:center;font-size:10px;opacity:.6;padding:12px">© 2024 SHREE VINAYAK IT CARE. All Rights Reserved.</div>
-</body>
-</html>
-"""
+.login{
+  background: rgba(16,29,51,0.95); border:1.6px solid #ff7a00; border-radius:16px; padding:20px;
+  height:fit-content; position:sticky; top:16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.login h3{font-size:18px; margin-bottom:2px}
+.login small{font-size:12px; color:#8aa0c6}
+.login label{font-size:11px; margin-top:14px; display:block; color:#a8bddb}
+.login input{
+  width:100%; padding:12px 12px; margin-top:6px; border-radius:10px;
+  border:1px solid #2a3e62; background:#0b1930; color:#fff; outline:none;
+}
+.login input:focus{border-color:#ff7a00}
+.row{ display:flex; justify-content:space-between; align-items:center; margin:12px 0; font-size:11px}
+.btn{
+  width:100%; padding:13px; border:none; border-radius:10px;
+  background: linear-gradient(90deg, #ff6a00, #ff9a00); color:#fff;
+  font-weight:800; font-size:15px; cursor:pointer;
+}
+.btn:hover{filter:brightness(1.1)}
 
-@app.route('/')
-def home(): return HTML
-@app.route('/motherboards')
-def mb(): return HTML
+.study{
+  margin-top:18px; border:1.5px solid #ff7a00; border-radius:16px;
+  padding:18px; background: rgba(16,29,51,0.7); backdrop-filter: blur(8px);
+}
+.study-head{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:14px}
+.study-head b{font-size:16px}
+.study-head span{font-size:11px; color:#8aa0c6}
+.grid4{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px}
 
-if __name__=='__main__':
-    app.run(host='0.0.0.0',port=5000)
+/* ===== THUMBNAIL HOVER EFFECT - PREMIUM ===== */
+.sbox{
+  background:#101d33; border:1px solid #22365e; border-radius:14px; padding:14px; text-align:center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  cursor:pointer; overflow:hidden; position:relative;
+}
+.sbox::after{
+  content:""; position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background: linear-gradient(90deg, transparent, rgba(255,122,0,0.15), transparent);
+  transition: 0.6s;
+}
+.sbox:hover::after{left:100%}
+.sbox:hover{
+  border-color:#ff7a00;
+  transform:translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(255,122,0,0.3), 0 0 20px rgba(255,122,0,0.15) inset;
+  background:#132241;
+}
+.thumb{
+  height:75px; border-radius:12px; background:#0c1a2f; display:grid; place-items:center;
+  font-size:30px; margin-bottom:12px; border:1px solid #1a2f54;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.sbox:hover .thumb{
+  transform: scale(1.2) rotate(5deg);
+  background: linear-gradient(135deg,#162e5a,#1e3c6e);
+  border-color:#ff7a00;
+  box-shadow: 0 0 25px rgba(255,122,0,0.5);
+  font-size:36px;
+}
+.sbox b{font-size:12.5px
