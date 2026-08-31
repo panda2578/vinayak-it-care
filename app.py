@@ -7,7 +7,6 @@ HTML = r"""
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -18,7 +17,6 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
 rel="stylesheet">
 
-<!-- FONT AWESOME ICONS -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -41,12 +39,10 @@ html{
 
 body{
     font-family:'Inter',sans-serif;
-
     background:
         radial-gradient(circle at 20% 10%,rgba(20,70,150,.18),transparent 30%),
         radial-gradient(circle at 80% 80%,rgba(255,120,0,.08),transparent 25%),
         #020814;
-
     color:#eaf1ff;
     min-height:100vh;
     overflow-x:hidden;
@@ -66,25 +62,22 @@ a{
 
 
 /* =====================================================
-   HEADER
+   DESKTOP HEADER
 ===================================================== */
 
 .header{
     border:1px solid #1d4f84;
     border-radius:18px;
     overflow:hidden;
-
-    background:
-        linear-gradient(90deg,#071126 0%,#07152e 50%,#061124 100%);
-
+    background:linear-gradient(90deg,#071126,#07152e,#061124);
     position:relative;
 }
 
 .header-top{
-    min-height:145px;
+    min-height:115px;
     display:flex;
     align-items:center;
-    padding:15px 30px;
+    padding:12px 25px;
     position:relative;
     overflow:hidden;
 }
@@ -101,34 +94,29 @@ a{
         linear-gradient(
             90deg,
             #07152e 0%,
-            rgba(7,21,46,.20) 35%,
-            rgba(0,0,0,.20)
+            rgba(7,21,46,.25) 35%,
+            rgba(0,0,0,.25)
         ),
         url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80");
 
     background-size:cover;
     background-position:center;
-    opacity:.70;
+    opacity:.75;
     z-index:0;
 }
-
-
-/* =====================================================
-   BRAND
-===================================================== */
 
 .brand-area{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:15px;
     position:relative;
     z-index:2;
 }
 
 .logo{
-    width:105px;
-    height:105px;
-    min-width:105px;
+    width:82px;
+    height:82px;
+    min-width:82px;
 
     border-radius:50%;
 
@@ -136,23 +124,22 @@ a{
     align-items:center;
     justify-content:center;
 
-    font-size:62px;
+    font-size:48px;
     color:#ff9a00;
 
-    border:3px solid #ff9700;
+    border:2px solid #ff9700;
 
-    background:
-        radial-gradient(circle,#17284d,#050c1c 70%);
+    background:radial-gradient(circle,#17284d,#050c1c 70%);
 
     box-shadow:
-        0 0 12px #ff8500,
-        0 0 30px rgba(255,130,0,.5);
+        0 0 10px #ff8500,
+        0 0 25px rgba(255,130,0,.45);
 }
 
 .brand h1{
-    font-size:37px;
-    line-height:.95;
-    letter-spacing:2px;
+    font-size:30px;
+    line-height:1;
+    letter-spacing:1.5px;
     font-weight:900;
     color:#f4f6fb;
 }
@@ -163,22 +150,23 @@ a{
 }
 
 .brand p{
-    margin-top:8px;
-    font-size:16px;
+    margin-top:6px;
+    font-size:13px;
     color:#c7d0df;
 }
 
 .brand small{
     display:block;
-    margin-top:5px;
+    margin-top:4px;
     color:#ffb000;
+    font-size:11px;
     font-weight:700;
     letter-spacing:1px;
 }
 
 
 /* =====================================================
-   HEADER INFORMATION
+   INFO BAR
 ===================================================== */
 
 .info-bar{
@@ -187,20 +175,17 @@ a{
 
     border-top:1px solid #1d4f84;
 
-    position:relative;
-    z-index:3;
-
     background:rgba(2,9,22,.88);
 }
 
 .info-item{
-    min-height:72px;
+    min-height:60px;
 
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:10px;
 
-    padding:12px 25px;
+    padding:9px 18px;
 
     border-right:1px solid #255486;
 }
@@ -210,20 +195,20 @@ a{
 }
 
 .info-icon{
-    font-size:31px;
+    font-size:24px;
     color:#ffb000;
 }
 
 .info-text b{
     display:block;
-    font-size:16px;
-    margin-bottom:4px;
+    font-size:13px;
+    margin-bottom:3px;
     color:#ffffff;
 }
 
 .info-text span{
     color:#aebbd0;
-    font-size:13px;
+    font-size:11px;
 }
 
 
@@ -233,8 +218,8 @@ a{
 
 .main-layout{
     display:grid;
-    grid-template-columns:minmax(0,1fr) 420px;
-    gap:14px;
+    grid-template-columns:minmax(0,1fr) 360px;
+    gap:12px;
     margin-top:10px;
 }
 
@@ -246,7 +231,7 @@ a{
 .left-panel{
     border:1px solid #174878;
     border-radius:18px;
-    padding:12px;
+    padding:10px;
 
     background:
         linear-gradient(180deg,#061126,#030a17);
@@ -259,36 +244,35 @@ a{
 
 .welcome{
     text-align:center;
-    padding:18px 10px 12px;
-    position:relative;
+    padding:14px 10px 10px;
 }
 
 .welcome-text{
-    font-size:28px;
+    font-size:23px;
     font-weight:800;
-    letter-spacing:10px;
+    letter-spacing:8px;
     color:#dfe7f4;
 }
 
 .to{
-    font-size:12px;
-    letter-spacing:5px;
+    font-size:10px;
+    letter-spacing:4px;
     margin-top:2px;
     color:#a7b5c8;
 }
 
 .welcome h2{
-    margin-top:5px;
-    font-size:34px;
+    margin-top:4px;
+    font-size:27px;
     color:#ff8500;
-    letter-spacing:2px;
+    letter-spacing:1px;
     font-weight:900;
 }
 
 .orange-line{
-    width:120px;
-    height:3px;
-    margin:12px auto;
+    width:100px;
+    height:2px;
+    margin:9px auto;
 
     background:
         linear-gradient(90deg,transparent,#ff8500,transparent);
@@ -300,7 +284,7 @@ a{
     content:"◇";
 
     position:absolute;
-    top:-13px;
+    top:-11px;
     left:50%;
 
     transform:translateX(-50%);
@@ -308,15 +292,15 @@ a{
     color:#ff9a00;
     background:#071126;
 
-    padding:0 8px;
-    font-size:26px;
+    padding:0 6px;
+    font-size:20px;
 }
 
 .welcome p{
-    max-width:720px;
+    max-width:680px;
     margin:auto;
-    line-height:1.5;
-    font-size:15px;
+    line-height:1.45;
+    font-size:12px;
     color:#c4cede;
 }
 
@@ -335,22 +319,22 @@ a{
     align-items:center;
     justify-content:center;
 
-    gap:20px;
+    gap:15px;
 
-    margin:12px 0 14px;
+    margin:10px 0;
 
     color:#c9d3e3;
-    font-size:15px;
+    font-size:12px;
     font-weight:700;
-    letter-spacing:8px;
+    letter-spacing:6px;
 }
 
 .section-title::before,
 .section-title::after{
     content:"";
-    height:2px;
+    height:1px;
     flex:1;
-    max-width:300px;
+    max-width:260px;
 
     background:
         linear-gradient(90deg,transparent,#2687d8);
@@ -369,7 +353,7 @@ a{
 .repair-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:12px;
+    gap:10px;
 }
 
 
@@ -379,10 +363,10 @@ a{
 
 .repair-card{
     position:relative;
-    min-height:160px;
-    padding:14px;
+    min-height:145px;
+    padding:11px;
 
-    border-radius:13px;
+    border-radius:12px;
     overflow:hidden;
     cursor:pointer;
 
@@ -401,16 +385,16 @@ a{
 }
 
 .repair-card:hover{
-    transform:translateY(-6px) scale(1.015);
+    transform:translateY(-5px) scale(1.015);
 
     box-shadow:
-        0 14px 35px rgba(0,0,0,.55),
-        0 0 22px var(--card-glow);
+        0 12px 30px rgba(0,0,0,.55),
+        0 0 20px var(--card-glow);
 }
 
 .card-icon{
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
 
     border-radius:50%;
 
@@ -418,7 +402,7 @@ a{
     align-items:center;
     justify-content:center;
 
-    font-size:24px;
+    font-size:20px;
 
     border:1px solid var(--card-border);
 
@@ -427,42 +411,42 @@ a{
 
 .card-device{
     position:absolute;
-    right:15px;
-    top:18px;
+    right:10px;
+    top:12px;
 
-    font-size:58px;
+    font-size:46px;
 
     filter:
-        drop-shadow(0 10px 10px rgba(0,0,0,.7));
+        drop-shadow(0 8px 8px rgba(0,0,0,.7));
 
     transition:transform .3s ease;
 }
 
 .repair-card:hover .card-device{
-    transform:scale(1.15) rotate(4deg);
+    transform:scale(1.12) rotate(4deg);
 }
 
 .repair-card h3{
-    margin-top:22px;
-    font-size:16px;
+    margin-top:14px;
+    font-size:13px;
     font-weight:800;
 }
 
 .repair-card p{
-    margin-top:7px;
-    font-size:13px;
-    line-height:1.45;
+    margin-top:5px;
+    font-size:10px;
+    line-height:1.35;
     color:#d0d9e7;
 }
 
 .explore-btn{
     display:inline-block;
-    margin-top:10px;
+    margin-top:7px;
 
-    padding:6px 22px;
+    padding:4px 14px;
 
-    border-radius:7px;
-    font-size:13px;
+    border-radius:6px;
+    font-size:10px;
 
     border:1px solid var(--card-border);
 
@@ -471,7 +455,7 @@ a{
 
 
 /* =====================================================
-   REPAIR CARD COLORS
+   CARD COLORS
 ===================================================== */
 
 .blue{
@@ -518,14 +502,14 @@ a{
 
 
 /* =====================================================
-   LOGIN PANEL
+   LOGIN
 ===================================================== */
 
 .login-panel{
     border:1px solid #2a588a;
     border-radius:18px;
 
-    padding:26px;
+    padding:20px;
 
     background:
         linear-gradient(180deg,#0a1931,#071123);
@@ -537,39 +521,39 @@ a{
 
 .login-title{
     text-align:center;
-    font-size:20px;
+    font-size:17px;
     font-weight:800;
     letter-spacing:2px;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 .input-box{
     position:relative;
-    margin-top:14px;
+    margin-top:10px;
 }
 
 .input-box span{
     position:absolute;
-    left:14px;
+    left:12px;
     top:50%;
 
     transform:translateY(-50%);
 
-    font-size:18px;
+    font-size:15px;
 }
 
 .input-box input{
     width:100%;
 
-    padding:15px 15px 15px 48px;
+    padding:12px 12px 12px 42px;
 
-    border-radius:9px;
+    border-radius:8px;
     border:1px solid #526176;
 
     background:#0a1425;
 
     color:white;
-    font-size:15px;
+    font-size:13px;
 
     outline:none;
 }
@@ -578,9 +562,9 @@ a{
     display:flex;
     justify-content:space-between;
 
-    margin-top:14px;
+    margin-top:10px;
 
-    font-size:13px;
+    font-size:11px;
     color:#d6deea;
 }
 
@@ -593,14 +577,14 @@ a{
 
     border:none;
 
-    margin-top:20px;
-    padding:15px;
+    margin-top:15px;
+    padding:12px;
 
-    border-radius:10px;
+    border-radius:8px;
 
     cursor:pointer;
 
-    font-size:21px;
+    font-size:16px;
     font-weight:800;
 
     color:white;
@@ -620,21 +604,21 @@ a{
 ===================================================== */
 
 .study-section{
-    margin-top:12px;
+    margin-top:10px;
 
     display:grid;
 
     grid-template-columns:
         1.5fr repeat(4,1fr);
 
-    gap:12px;
+    gap:8px;
 }
 
 .study-info{
-    padding:12px;
+    padding:10px;
     text-align:center;
 
-    border-radius:12px;
+    border-radius:10px;
 
     border:1px solid #235687;
 
@@ -643,22 +627,21 @@ a{
 }
 
 .study-info h3{
-    font-size:19px;
-    letter-spacing:1px;
+    font-size:16px;
 }
 
 .study-info .sub{
-    margin-top:4px;
+    margin-top:3px;
     color:#53b5ff;
-    font-size:14px;
+    font-size:11px;
 }
 
 .study-info p{
-    margin:10px auto;
+    margin:7px auto;
     max-width:290px;
 
-    font-size:13px;
-    line-height:1.45;
+    font-size:10px;
+    line-height:1.4;
 
     color:#c0cbdb;
 }
@@ -666,19 +649,20 @@ a{
 .study-btn{
     display:inline-block;
 
-    padding:9px 24px;
+    padding:6px 15px;
 
     border:1px solid #5dafff;
-    border-radius:7px;
+    border-radius:6px;
 
+    font-size:10px;
     font-weight:700;
 }
 
 .study-card{
-    min-height:140px;
-    padding:8px;
+    min-height:115px;
+    padding:6px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     text-align:center;
 
@@ -691,29 +675,29 @@ a{
 }
 
 .study-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 
     box-shadow:
-        0 0 20px rgba(0,130,255,.25);
+        0 0 18px rgba(0,130,255,.25);
 }
 
 .study-image{
-    height:85px;
+    height:65px;
 
-    border-radius:7px;
+    border-radius:6px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:48px;
+    font-size:36px;
 
     background:#0c1627;
 }
 
 .study-card h4{
-    margin-top:9px;
-    font-size:14px;
+    margin-top:6px;
+    font-size:11px;
     color:#d9e2ef;
 }
 
@@ -723,7 +707,7 @@ a{
 ===================================================== */
 
 .features{
-    margin-top:12px;
+    margin-top:10px;
 
     display:grid;
 
@@ -732,7 +716,7 @@ a{
 
     border:1px solid #1f5486;
 
-    border-radius:14px;
+    border-radius:12px;
 
     overflow:hidden;
 
@@ -740,19 +724,19 @@ a{
 }
 
 .feature{
-    padding:14px 12px;
+    padding:10px 8px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    gap:9px;
+    gap:6px;
 
     border-right:1px solid #2a5888;
 
     color:#d7dfeb;
 
-    font-size:14px;
+    font-size:11px;
     text-align:center;
 }
 
@@ -762,7 +746,7 @@ a{
 
 .feature span{
     color:#ffb000;
-    font-size:22px;
+    font-size:17px;
 }
 
 
@@ -773,23 +757,23 @@ a{
 .footer{
     text-align:center;
 
-    margin-top:4px;
-    padding:15px;
+    margin-top:5px;
+    padding:10px;
 
     color:#aeb9ca;
-    font-size:14px;
+    font-size:11px;
 
     border:1px solid #174878;
 
     border-radius:
-        0 0 18px 18px;
+        0 0 15px 15px;
 
     background:#06101f;
 }
 
 
 /* =====================================================
-   PREMIUM FLOATING CONTACT BUTTONS
+   FLOATING BUTTONS
 ===================================================== */
 
 .floating-contact{
@@ -803,15 +787,12 @@ a{
     display:flex;
     flex-direction:column;
 
-    gap:14px;
+    gap:12px;
 }
 
-
-/* BUTTON */
-
 .float-btn{
-    width:58px;
-    height:58px;
+    width:54px;
+    height:54px;
 
     border-radius:50%;
 
@@ -821,14 +802,14 @@ a{
 
     position:relative;
 
-    font-size:25px;
+    font-size:23px;
 
     color:#ffffff;
 
     border:2px solid rgba(255,255,255,.25);
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.55);
+        0 8px 22px rgba(0,0,0,.55);
 
     transition:
         transform .25s ease,
@@ -837,9 +818,6 @@ a{
     animation:
         floatingPulse 2.5s infinite;
 }
-
-
-/* RIPPLE RING */
 
 .float-btn::before{
     content:"";
@@ -859,9 +837,6 @@ a{
         ripple 2.2s infinite;
 }
 
-
-/* ICON */
-
 .float-btn i{
     position:relative;
     z-index:2;
@@ -869,9 +844,6 @@ a{
     transition:
         transform .25s ease;
 }
-
-
-/* HOVER */
 
 .float-btn:hover{
     transform:
@@ -888,9 +860,6 @@ a{
         scale(1.1);
 }
 
-
-/* WHATSAPP */
-
 .float-whatsapp{
     background:
         linear-gradient(
@@ -898,14 +867,7 @@ a{
             #25d366,
             #128c4a
         );
-
-    box-shadow:
-        0 0 14px rgba(37,211,102,.8),
-        0 8px 25px rgba(0,0,0,.6);
 }
-
-
-/* CALL */
 
 .float-call{
     background:
@@ -914,14 +876,7 @@ a{
             #2d9cff,
             #0055b8
         );
-
-    box-shadow:
-        0 0 14px rgba(45,156,255,.8),
-        0 8px 25px rgba(0,0,0,.6);
 }
-
-
-/* CHAT */
 
 .float-chat{
     background:
@@ -930,29 +885,22 @@ a{
             #ff9a00,
             #ff4d00
         );
-
-    box-shadow:
-        0 0 14px rgba(255,120,0,.8),
-        0 8px 25px rgba(0,0,0,.6);
 }
-
-
-/* LABEL */
 
 .float-btn::after{
     position:absolute;
 
-    right:72px;
+    right:66px;
 
-    padding:7px 13px;
+    padding:6px 11px;
 
-    border-radius:7px;
+    border-radius:6px;
 
     background:#071426;
 
     color:#ffffff;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:700;
 
@@ -971,16 +919,12 @@ a{
         1px solid rgba(255,255,255,.15);
 }
 
-
 .float-btn:hover::after{
     opacity:1;
 
     transform:
         translateX(0);
 }
-
-
-/* TOOLTIP TEXT */
 
 .float-chat::after{
     content:"MESSAGE CHAT";
@@ -995,8 +939,6 @@ a{
 }
 
 
-/* PULSE */
-
 @keyframes floatingPulse{
 
     0%{
@@ -1004,7 +946,7 @@ a{
     }
 
     50%{
-        transform:scale(1.06);
+        transform:scale(1.05);
     }
 
     100%{
@@ -1013,18 +955,15 @@ a{
 
 }
 
-
-/* RIPPLE */
-
 @keyframes ripple{
 
     0%{
         transform:scale(1);
-        opacity:.55;
+        opacity:.5;
     }
 
     100%{
-        transform:scale(1.55);
+        transform:scale(1.5);
         opacity:0;
     }
 
@@ -1039,7 +978,7 @@ a{
 
     .main-layout{
         grid-template-columns:
-            1fr 340px;
+            1fr 320px;
     }
 
     .repair-grid{
@@ -1065,7 +1004,7 @@ a{
 
 
 /* =====================================================
-   MOBILE / TABLET
+   TABLET / MOBILE
 ===================================================== */
 
 @media(max-width:850px){
@@ -1079,22 +1018,17 @@ a{
         top:auto;
     }
 
-    .repair-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
 }
 
 
 /* =====================================================
-   MOBILE
+   COMPACT MOBILE VERSION
 ===================================================== */
 
 @media(max-width:600px){
 
     body{
-        padding-bottom:90px;
+        padding-bottom:80px;
     }
 
     .container{
@@ -1102,7 +1036,7 @@ a{
     }
 
 
-    /* HIDE HEADER */
+    /* DESKTOP HEADER HIDE */
 
     .header{
         display:none;
@@ -1117,16 +1051,16 @@ a{
     .left-panel{
         border:none;
         border-radius:0;
-        padding:8px;
+        padding:7px;
         background:#030a17;
     }
 
 
-    /* WELCOME IMAGE BACKGROUND */
+    /* MOBILE WELCOME HEADER */
 
     .welcome{
 
-        min-height:310px;
+        min-height:210px;
 
         display:flex;
 
@@ -1136,11 +1070,10 @@ a{
 
         justify-content:center;
 
-        padding:
-            40px 15px 35px;
+        padding:25px 12px 22px;
 
         border-radius:
-            0 0 18px 18px;
+            0 0 16px 16px;
 
         overflow:hidden;
 
@@ -1158,85 +1091,217 @@ a{
         background-position:center;
 
         box-shadow:
-            inset 0 0 80px rgba(0,0,0,.8);
+            inset 0 0 70px rgba(0,0,0,.8);
     }
 
 
     .welcome-text{
-        font-size:21px;
-        letter-spacing:6px;
+        font-size:17px;
+        letter-spacing:4px;
 
         text-shadow:
             0 2px 10px #000;
     }
 
 
+    .to{
+        font-size:9px;
+        letter-spacing:3px;
+    }
+
+
     .welcome h2{
-        font-size:26px;
-        line-height:1.25;
+        font-size:21px;
+        margin-top:4px;
 
         text-shadow:
             0 2px 12px #000;
     }
 
 
+    .orange-line{
+        width:90px;
+        margin:8px auto;
+        height:2px;
+    }
+
+
+    .orange-line::after{
+        font-size:18px;
+        top:-9px;
+
+        background:
+            rgba(3,10,20,.8);
+    }
+
+
     .welcome p{
-        font-size:13px;
-        max-width:340px;
+        font-size:10.5px;
+        line-height:1.45;
+        max-width:310px;
 
         text-shadow:
             0 2px 8px #000;
     }
 
 
-    .orange-line::after{
-        background:
-            rgba(3,10,20,.8);
-    }
-
+    /* SECTION TITLE */
 
     .section-title{
-        font-size:12px;
-        letter-spacing:4px;
+        margin:12px 0 10px;
+        font-size:10px;
+        letter-spacing:3px;
         gap:8px;
-
-        margin-top:20px;
     }
 
 
+    /* COMPACT 2 COLUMN CARDS */
+
     .repair-grid{
-        grid-template-columns:1fr;
-        gap:10px;
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:8px;
     }
 
 
     .repair-card{
-        min-height:145px;
+        min-height:128px;
+        padding:10px;
+        border-radius:11px;
     }
 
+
+    .card-icon{
+        width:36px;
+        height:36px;
+        font-size:17px;
+    }
+
+
+    .card-device{
+        right:8px;
+        top:10px;
+        font-size:40px;
+    }
+
+
+    .repair-card h3{
+        margin-top:14px;
+        font-size:10.5px;
+        line-height:1.25;
+        max-width:130px;
+    }
+
+
+    .repair-card p{
+        margin-top:4px;
+        font-size:8.5px;
+        line-height:1.35;
+    }
+
+
+    .explore-btn{
+        margin-top:7px;
+        padding:4px 10px;
+        font-size:9px;
+        border-radius:6px;
+    }
+
+
+    /* LOGIN */
 
     .login-panel{
-        margin:8px;
-        padding:20px 15px;
-        border-radius:16px;
+        margin:7px;
+        padding:16px 14px;
     }
 
+
+    .login-title{
+        font-size:16px;
+        margin-bottom:12px;
+    }
+
+
+    .input-box{
+        margin-top:9px;
+    }
+
+
+    .input-box input{
+        padding:11px 11px 11px 40px;
+        font-size:12px;
+    }
+
+
+    .login-button{
+        padding:11px;
+        font-size:16px;
+        margin-top:12px;
+    }
+
+
+    /* STUDY */
 
     .study-section{
         grid-template-columns:
             repeat(2,1fr);
 
-        padding:8px;
+        gap:7px;
+        padding:0;
     }
 
 
     .study-info{
         grid-column:span 2;
+        padding:10px;
     }
 
 
+    .study-info h3{
+        font-size:15px;
+    }
+
+
+    .study-info .sub{
+        font-size:10px;
+    }
+
+
+    .study-info p{
+        font-size:10px;
+        margin:6px auto;
+    }
+
+
+    .study-btn{
+        padding:6px 14px;
+        font-size:10px;
+    }
+
+
+    .study-card{
+        min-height:105px;
+        padding:6px;
+    }
+
+
+    .study-image{
+        height:60px;
+        font-size:32px;
+    }
+
+
+    .study-card h4{
+        margin-top:5px;
+        font-size:10px;
+    }
+
+
+    /* FEATURES */
+
     .features{
-        margin:8px;
+        margin:7px;
         grid-template-columns:1fr;
     }
 
@@ -1246,6 +1311,8 @@ a{
 
         border-bottom:
             1px solid #2a5888;
+
+        padding:9px;
     }
 
 
@@ -1254,30 +1321,30 @@ a{
     }
 
 
+    /* FOOTER */
+
     .footer{
-        margin:8px;
-        border-radius:12px;
-        font-size:12px;
+        margin:7px;
+        border-radius:10px;
+        font-size:10px;
     }
 
 
     /* FLOATING BUTTONS */
 
     .floating-contact{
-        right:14px;
-        bottom:18px;
-        gap:12px;
+        right:10px;
+        bottom:14px;
+        gap:9px;
     }
 
 
     .float-btn{
-        width:56px;
-        height:56px;
-        font-size:24px;
+        width:48px;
+        height:48px;
+        font-size:20px;
     }
 
-
-    /* TOOLTIP ALWAYS HIDE ON MOBILE */
 
     .float-btn::after{
         display:none;
@@ -1293,19 +1360,28 @@ a{
 @media(max-width:380px){
 
     .welcome h2{
-        font-size:22px;
+        font-size:19px;
     }
 
     .welcome-text{
-        font-size:18px;
+        font-size:15px;
     }
 
-    .study-section{
-        grid-template-columns:1fr;
+    .repair-card{
+        min-height:120px;
+        padding:8px;
     }
 
-    .study-info{
-        grid-column:span 1;
+    .card-device{
+        font-size:34px;
+    }
+
+    .repair-card h3{
+        font-size:9.5px;
+    }
+
+    .repair-card p{
+        font-size:8px;
     }
 
 }
@@ -1317,26 +1393,22 @@ a{
 
 <body>
 
-
 <div class="container">
 
 
 <!-- =====================================================
-     HEADER - DESKTOP ONLY
+     DESKTOP HEADER
 ===================================================== -->
 
 <div class="header">
-
 
 <div class="header-top">
 
 <div class="brand-area">
 
-
 <div class="logo">
 ॐ
 </div>
-
 
 <div class="brand">
 
@@ -1355,104 +1427,53 @@ Repair | Restore | Resolve
 
 </div>
 
-
 </div>
 
 </div>
 
-
-
-<!-- HEADER INFO -->
 
 <div class="info-bar">
 
-
 <div class="info-item">
-
-<div class="info-icon">
-👨‍🔧
-</div>
-
+<div class="info-icon">👨‍🔧</div>
 <div class="info-text">
-
 <b>19+ Years</b>
-
-<span>
-Of Experience
-</span>
-
+<span>Of Experience</span>
 </div>
-
 </div>
-
 
 
 <div class="info-item">
-
-<div class="info-icon">
-📍
-</div>
-
+<div class="info-icon">📍</div>
 <div class="info-text">
-
-<b>
-Bhubaneswar, Odisha
-</b>
-
-<span>
-India
-</span>
-
+<b>Bhubaneswar, Odisha</b>
+<span>India</span>
 </div>
-
 </div>
-
 
 
 <div class="info-item">
-
-<div class="info-icon">
-📞
-</div>
-
+<div class="info-icon">📞</div>
 <div class="info-text">
-
 <b>
 <a href="tel:+917008541544">
 +91 70085 41544
 </a>
 </b>
-
 <span style="color:#55d66c">
 Call / WhatsApp
 </span>
-
 </div>
-
 </div>
-
 
 
 <div class="info-item">
-
-<div class="info-icon">
-✉️
-</div>
-
+<div class="info-icon">✉️</div>
 <div class="info-text">
-
-<b>
-info@shreevinayakitcare.com
-</b>
-
-<span>
-Support
-</span>
-
+<b>info@shreevinayakitcare.com</b>
+<span>Support</span>
 </div>
-
 </div>
-
 
 </div>
 
@@ -1461,13 +1482,13 @@ Support
 
 
 <!-- =====================================================
-     MAIN LAYOUT
+     MAIN
 ===================================================== -->
 
 <div class="main-layout">
 
 
-<!-- LEFT PANEL -->
+<!-- LEFT SIDE -->
 
 <div class="left-panel">
 
@@ -1508,12 +1529,15 @@ Contact:
 
 
 
-<!-- REPAIR CATALOGUE -->
+<!-- REPAIR TITLE -->
 
 <div class="section-title">
 REPAIR CATALOGUE
 </div>
 
+
+
+<!-- REPAIR CARDS -->
 
 <div class="repair-grid">
 
@@ -1522,17 +1546,11 @@ REPAIR CATALOGUE
 
 <div class="repair-card blue">
 
-<div class="card-icon">
-💻
-</div>
+<div class="card-icon">💻</div>
 
-<div class="card-device">
-💻
-</div>
+<div class="card-device">💻</div>
 
-<h3>
-LAPTOP REPAIR
-</h3>
+<h3>LAPTOP REPAIR</h3>
 
 <p>
 All Brands Supported<br>
@@ -1553,17 +1571,11 @@ Explore →
 
 <div class="repair-card green">
 
-<div class="card-icon">
-🖥️
-</div>
+<div class="card-icon">🖥️</div>
 
-<div class="card-device">
-🖥️
-</div>
+<div class="card-device">🖥️</div>
 
-<h3>
-DESKTOP REPAIR
-</h3>
+<h3>DESKTOP REPAIR</h3>
 
 <p>
 Motherboard & Component<br>
@@ -1584,17 +1596,11 @@ Explore →
 
 <div class="repair-card purple">
 
-<div class="card-icon">
-🖨️
-</div>
+<div class="card-icon">🖨️</div>
 
-<div class="card-device">
-🖨️
-</div>
+<div class="card-device">🖨️</div>
 
-<h3>
-PRINTER REPAIR
-</h3>
+<h3>PRINTER REPAIR</h3>
 
 <p>
 Laser, Inkjet, All-in-One<br>
@@ -1615,17 +1621,11 @@ Explore →
 
 <div class="repair-card orange">
 
-<div class="card-icon">
-📱
-</div>
+<div class="card-icon">📱</div>
 
-<div class="card-device">
-📱
-</div>
+<div class="card-device">📱</div>
 
-<h3>
-MOBILE / TABLET REPAIR
-</h3>
+<h3>MOBILE / TABLET</h3>
 
 <p>
 Hardware & Software<br>
@@ -1646,17 +1646,11 @@ Explore →
 
 <div class="repair-card teal">
 
-<div class="card-icon">
-💾
-</div>
+<div class="card-icon">💾</div>
 
-<div class="card-device">
-💽
-</div>
+<div class="card-device">💽</div>
 
-<h3>
-DATA RECOVERY
-</h3>
+<h3>DATA RECOVERY</h3>
 
 <p>
 Recover Deleted, Formatted<br>
@@ -1677,17 +1671,11 @@ Explore →
 
 <div class="repair-card yellow">
 
-<div class="card-icon">
-⚡
-</div>
+<div class="card-icon">⚡</div>
 
-<div class="card-device">
-🔌
-</div>
+<div class="card-device">🔌</div>
 
-<h3>
-POWER SUPPLY REPAIR
-</h3>
+<h3>POWER SUPPLY</h3>
 
 <p>
 SMPS, Adapter, DC Supply<br>
@@ -1723,9 +1711,9 @@ Learn | Practice | Master
 </div>
 
 <p>
-Access Schematics,
-BoardViews, Repair Guides,
-eBooks and Technical Notes.
+Access Schematics, BoardViews,
+Repair Guides, eBooks and
+Technical Notes.
 </p>
 
 <a href="/study"
@@ -1812,22 +1800,17 @@ eBooks & Notes
 
 </div>
 
-
 </div>
 
 
 
-<!-- =====================================================
-     LOGIN PANEL
-===================================================== -->
+<!-- LOGIN PANEL -->
 
 <div class="login-panel">
-
 
 <div class="login-title">
 🔒 LOGIN
 </div>
-
 
 <form method="POST"
 action="/login">
@@ -1835,9 +1818,7 @@ action="/login">
 
 <div class="input-box">
 
-<span>
-👤
-</span>
+<span>👤</span>
 
 <input
 type="text"
@@ -1851,9 +1832,7 @@ required>
 
 <div class="input-box">
 
-<span>
-🔒
-</span>
+<span>🔒</span>
 
 <input
 type="password"
@@ -1868,11 +1847,8 @@ required>
 <div class="login-options">
 
 <label>
-
 <input type="checkbox">
-
 Remember Me
-
 </label>
 
 <a href="#">
@@ -1891,10 +1867,8 @@ LOGIN →
 
 </button>
 
-
 </form>
 
-
 </div>
 
 
@@ -1902,9 +1876,7 @@ LOGIN →
 
 
 
-<!-- =====================================================
-     FEATURES
-===================================================== -->
+<!-- FEATURES -->
 
 <div class="features">
 
@@ -1941,10 +1913,8 @@ Doorstep Pickup & Delivery
 
 <div class="footer">
 
-© 2026 SHREE VINAYAK IT CARE
-|
-WhatsApp: 7008541544
-|
+© 2026 SHREE VINAYAK IT CARE |
+WhatsApp: 7008541544 |
 All Rights Reserved.
 
 </div>
@@ -1955,7 +1925,7 @@ All Rights Reserved.
 
 
 <!-- =====================================================
-     PREMIUM FLOATING BUTTONS
+     FLOATING BUTTONS
 ===================================================== -->
 
 <div class="floating-contact">
@@ -1973,6 +1943,7 @@ title="Message Chat">
 </a>
 
 
+
 <!-- CALL -->
 
 <a
@@ -1983,6 +1954,7 @@ title="Call Now">
 <i class="fa-solid fa-phone"></i>
 
 </a>
+
 
 
 <!-- WHATSAPP -->
@@ -2041,13 +2013,19 @@ def chat():
 
     return """
     <!DOCTYPE html>
-    <html>
+
+    <html lang="en">
+
     <head>
+
+    <meta charset="UTF-8">
 
     <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
 
-    <title>SHREE VINAYAK IT CARE - Chat</title>
+    <title>
+    SHREE VINAYAK IT CARE - Chat
+    </title>
 
     <style>
 
@@ -2057,7 +2035,7 @@ def chat():
 
     body{
         margin:0;
-        font-family:Arial;
+        font-family:Arial,sans-serif;
         background:#020814;
         color:white;
     }
@@ -2074,7 +2052,7 @@ def chat():
     }
 
     .chat-header{
-        padding:20px;
+        padding:18px;
 
         background:#0c2344;
 
@@ -2085,31 +2063,39 @@ def chat():
     .chat-header h2{
         margin:0;
         color:#ff8a00;
+        font-size:20px;
+    }
+
+    .chat-header p{
+        margin:7px 0 0;
+        font-size:12px;
+        color:#55d66c;
     }
 
     .messages{
         flex:1;
-        padding:20px;
+        padding:18px;
     }
 
     .support-message{
         background:#122b4d;
-        padding:15px;
+        padding:14px;
         border-radius:14px;
         max-width:85%;
         line-height:1.5;
+        font-size:14px;
     }
 
     .chat-input{
         display:flex;
         gap:8px;
-        padding:12px;
+        padding:10px;
         background:#08152a;
     }
 
     .chat-input input{
         flex:1;
-        padding:14px;
+        padding:13px;
 
         border:none;
         border-radius:25px;
@@ -2122,7 +2108,7 @@ def chat():
 
     .chat-input button{
         border:none;
-        padding:12px 20px;
+        padding:10px 18px;
 
         border-radius:25px;
 
@@ -2158,11 +2144,13 @@ def chat():
 
             <div class="support-message">
 
-                👨‍🔧 Welcome to SHREE VINAYAK IT CARE.
+                👨‍🔧 Welcome to
+                SHREE VINAYAK IT CARE.
 
                 <br><br>
 
-                Please write your repair issue here.
+                Please write your
+                repair issue here.
 
             </div>
 
@@ -2189,6 +2177,7 @@ def chat():
     </div>
 
     </body>
+
     </html>
     """
 
@@ -2206,13 +2195,17 @@ def send_message():
 
     return f"""
     <h2>Message Sent Successfully ✅</h2>
+
     <p>{message}</p>
-    <a href="/chat">← Back to Chat</a>
+
+    <a href="/chat">
+    ← Back to Chat
+    </a>
     """
 
 
 # =====================================================
-# REPAIR SECTIONS
+# REPAIR PAGES
 # =====================================================
 
 @app.route("/laptop")
@@ -2275,7 +2268,7 @@ def ebooks():
 
 
 # =====================================================
-# RUN APP
+# RUN FLASK
 # =====================================================
 
 if __name__ == "__main__":
