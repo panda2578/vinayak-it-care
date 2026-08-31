@@ -2,10 +2,6 @@ from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
 
-# =====================================================
-# HOME PAGE
-# =====================================================
-
 HTML = r"""
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +17,10 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
 rel="stylesheet">
+
+<!-- FONT AWESOME ICONS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -43,22 +43,12 @@ body{
     font-family:'Inter',sans-serif;
 
     background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(20,70,150,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(255,120,0,.08),
-            transparent 25%
-        ),
+        radial-gradient(circle at 20% 10%,rgba(20,70,150,.18),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(255,120,0,.08),transparent 25%),
         #020814;
 
     color:#eaf1ff;
-
     min-height:100vh;
-
     overflow-x:hidden;
 }
 
@@ -80,72 +70,45 @@ a{
 ===================================================== */
 
 .header{
-
     border:1px solid #1d4f84;
-
     border-radius:18px;
-
     overflow:hidden;
 
     background:
-        linear-gradient(
-            90deg,
-            #071126 0%,
-            #07152e 50%,
-            #061124 100%
-        );
+        linear-gradient(90deg,#071126 0%,#07152e 50%,#061124 100%);
 
     position:relative;
 }
 
-
 .header-top{
-
     min-height:145px;
-
     display:flex;
-
     align-items:center;
-
     padding:15px 30px;
-
     position:relative;
-
     overflow:hidden;
 }
 
-
-/* HEADER REPAIR IMAGE */
-
 .header-top::after{
-
     content:"";
-
     position:absolute;
-
     right:0;
     top:0;
-
     width:58%;
     height:100%;
 
     background:
-
         linear-gradient(
             90deg,
             #07152e 0%,
             rgba(7,21,46,.20) 35%,
             rgba(0,0,0,.20)
         ),
-
         url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80");
 
     background-size:cover;
-
     background-position:center;
-
     opacity:.70;
-
     z-index:0;
 }
 
@@ -155,94 +118,61 @@ a{
 ===================================================== */
 
 .brand-area{
-
     display:flex;
-
     align-items:center;
-
     gap:18px;
-
     position:relative;
-
     z-index:2;
 }
 
-
 .logo{
-
     width:105px;
     height:105px;
-
     min-width:105px;
 
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     font-size:62px;
-
     color:#ff9a00;
 
     border:3px solid #ff9700;
 
     background:
-        radial-gradient(
-            circle,
-            #17284d,
-            #050c1c 70%
-        );
+        radial-gradient(circle,#17284d,#050c1c 70%);
 
     box-shadow:
         0 0 12px #ff8500,
         0 0 30px rgba(255,130,0,.5);
 }
 
-
 .brand h1{
-
     font-size:37px;
-
     line-height:.95;
-
     letter-spacing:2px;
-
     font-weight:900;
-
     color:#f4f6fb;
 }
 
-
 .brand h1 span{
-
     display:block;
-
     color:#ff8500;
 }
 
-
 .brand p{
-
     margin-top:8px;
-
     font-size:16px;
-
     color:#c7d0df;
 }
 
-
 .brand small{
-
     display:block;
-
     margin-top:5px;
-
     color:#ffb000;
-
     font-weight:700;
-
     letter-spacing:1px;
 }
 
@@ -252,70 +182,47 @@ a{
 ===================================================== */
 
 .info-bar{
-
     display:grid;
+    grid-template-columns:repeat(4,1fr);
 
-    grid-template-columns:
-        repeat(4,1fr);
-
-    border-top:
-        1px solid #1d4f84;
+    border-top:1px solid #1d4f84;
 
     position:relative;
-
     z-index:3;
 
-    background:
-        rgba(2,9,22,.88);
+    background:rgba(2,9,22,.88);
 }
 
-
 .info-item{
-
     min-height:72px;
 
     display:flex;
-
     align-items:center;
-
     gap:15px;
 
     padding:12px 25px;
 
-    border-right:
-        1px solid #255486;
+    border-right:1px solid #255486;
 }
-
 
 .info-item:last-child{
     border-right:none;
 }
 
-
 .info-icon{
-
     font-size:31px;
-
     color:#ffb000;
 }
 
-
 .info-text b{
-
     display:block;
-
     font-size:16px;
-
     margin-bottom:4px;
-
     color:#ffffff;
 }
 
-
 .info-text span{
-
     color:#aebbd0;
-
     font-size:13px;
 }
 
@@ -325,14 +232,9 @@ a{
 ===================================================== */
 
 .main-layout{
-
     display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr) 420px;
-
+    grid-template-columns:minmax(0,1fr) 420px;
     gap:14px;
-
     margin-top:10px;
 }
 
@@ -342,20 +244,12 @@ a{
 ===================================================== */
 
 .left-panel{
-
-    border:
-        1px solid #174878;
-
+    border:1px solid #174878;
     border-radius:18px;
-
     padding:12px;
 
     background:
-        linear-gradient(
-            180deg,
-            #061126,
-            #030a17
-        );
+        linear-gradient(180deg,#061126,#030a17);
 }
 
 
@@ -364,115 +258,70 @@ a{
 ===================================================== */
 
 .welcome{
-
     text-align:center;
-
-    padding:
-        18px 10px 12px;
-
+    padding:18px 10px 12px;
     position:relative;
 }
 
-
 .welcome-text{
-
     font-size:28px;
-
     font-weight:800;
-
     letter-spacing:10px;
-
     color:#dfe7f4;
 }
 
-
 .to{
-
     font-size:12px;
-
     letter-spacing:5px;
-
     margin-top:2px;
-
     color:#a7b5c8;
 }
 
-
 .welcome h2{
-
     margin-top:5px;
-
     font-size:34px;
-
     color:#ff8500;
-
     letter-spacing:2px;
-
     font-weight:900;
 }
 
-
 .orange-line{
-
     width:120px;
-
     height:3px;
-
     margin:12px auto;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff8500,
-            transparent
-        );
+        linear-gradient(90deg,transparent,#ff8500,transparent);
 
     position:relative;
 }
 
-
 .orange-line::after{
-
     content:"◇";
 
     position:absolute;
-
     top:-13px;
-
     left:50%;
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
     color:#ff9a00;
-
     background:#071126;
 
     padding:0 8px;
-
     font-size:26px;
 }
 
-
 .welcome p{
-
     max-width:720px;
-
     margin:auto;
-
     line-height:1.5;
-
     font-size:15px;
-
     color:#c4cede;
 }
 
-
 .welcome p span{
-
     color:#ff9a00;
-
     font-weight:800;
 }
 
@@ -482,56 +331,34 @@ a{
 ===================================================== */
 
 .section-title{
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     gap:20px;
 
-    margin:
-        12px 0 14px;
+    margin:12px 0 14px;
 
     color:#c9d3e3;
-
     font-size:15px;
-
     font-weight:700;
-
     letter-spacing:8px;
 }
 
-
 .section-title::before,
 .section-title::after{
-
     content:"";
-
     height:2px;
-
     flex:1;
-
     max-width:300px;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #2687d8
-        );
+        linear-gradient(90deg,transparent,#2687d8);
 }
 
-
 .section-title::after{
-
     background:
-        linear-gradient(
-            90deg,
-            #2687d8,
-            transparent
-        );
+        linear-gradient(90deg,#2687d8,transparent);
 }
 
 
@@ -540,12 +367,8 @@ a{
 ===================================================== */
 
 .repair-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:12px;
 }
 
@@ -555,25 +378,19 @@ a{
 ===================================================== */
 
 .repair-card{
-
     position:relative;
-
     min-height:160px;
-
     padding:14px;
 
     border-radius:13px;
-
     overflow:hidden;
-
     cursor:pointer;
 
     transition:
         transform .3s ease,
         box-shadow .3s ease;
 
-    border:
-        1px solid var(--card-border);
+    border:1px solid var(--card-border);
 
     background:
         linear-gradient(
@@ -583,114 +400,78 @@ a{
         );
 }
 
-
 .repair-card:hover{
-
-    transform:
-        translateY(-6px)
-        scale(1.015);
+    transform:translateY(-6px) scale(1.015);
 
     box-shadow:
         0 14px 35px rgba(0,0,0,.55),
         0 0 22px var(--card-glow);
 }
 
-
 .card-icon{
-
     width:48px;
     height:48px;
 
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     font-size:24px;
 
-    border:
-        1px solid var(--card-border);
+    border:1px solid var(--card-border);
 
-    background:
-        rgba(0,0,0,.25);
+    background:rgba(0,0,0,.25);
 }
 
-
 .card-device{
-
     position:absolute;
-
     right:15px;
-
     top:18px;
 
     font-size:58px;
 
     filter:
-        drop-shadow(
-            0 10px 10px rgba(0,0,0,.7)
-        );
+        drop-shadow(0 10px 10px rgba(0,0,0,.7));
 
-    transition:
-        transform .3s ease;
+    transition:transform .3s ease;
 }
-
 
 .repair-card:hover .card-device{
-
-    transform:
-        scale(1.15)
-        rotate(4deg);
+    transform:scale(1.15) rotate(4deg);
 }
 
-
 .repair-card h3{
-
     margin-top:22px;
-
     font-size:16px;
-
     font-weight:800;
 }
 
-
 .repair-card p{
-
     margin-top:7px;
-
     font-size:13px;
-
     line-height:1.45;
-
     color:#d0d9e7;
 }
 
-
 .explore-btn{
-
     display:inline-block;
-
     margin-top:10px;
 
-    padding:
-        6px 22px;
+    padding:6px 22px;
 
     border-radius:7px;
-
     font-size:13px;
 
-    border:
-        1px solid var(--card-border);
+    border:1px solid var(--card-border);
 
-    background:
-        rgba(0,0,0,.3);
+    background:rgba(0,0,0,.3);
 }
 
 
 /* =====================================================
-   CARD COLORS
+   REPAIR CARD COLORS
 ===================================================== */
 
 .blue{
@@ -741,116 +522,78 @@ a{
 ===================================================== */
 
 .login-panel{
-
-    border:
-        1px solid #2a588a;
-
+    border:1px solid #2a588a;
     border-radius:18px;
 
     padding:26px;
 
     background:
-        linear-gradient(
-            180deg,
-            #0a1931,
-            #071123
-        );
+        linear-gradient(180deg,#0a1931,#071123);
 
     height:fit-content;
-
     position:sticky;
-
     top:10px;
 }
 
-
 .login-title{
-
     text-align:center;
-
     font-size:20px;
-
     font-weight:800;
-
     letter-spacing:2px;
-
     margin-bottom:20px;
 }
 
-
 .input-box{
-
     position:relative;
-
     margin-top:14px;
 }
 
-
 .input-box span{
-
     position:absolute;
-
     left:14px;
-
     top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 
     font-size:18px;
 }
 
-
 .input-box input{
-
     width:100%;
 
-    padding:
-        15px 15px 15px 48px;
+    padding:15px 15px 15px 48px;
 
     border-radius:9px;
+    border:1px solid #526176;
 
-    border:
-        1px solid #526176;
-
-    background:
-        #0a1425;
+    background:#0a1425;
 
     color:white;
-
     font-size:15px;
 
     outline:none;
 }
 
-
 .login-options{
-
     display:flex;
-
     justify-content:space-between;
 
     margin-top:14px;
 
     font-size:13px;
-
     color:#d6deea;
 }
-
 
 .login-options a{
     color:#ffae32;
 }
 
-
 .login-button{
-
     width:100%;
 
     border:none;
 
     margin-top:20px;
-
     padding:15px;
 
     border-radius:10px;
@@ -858,7 +601,6 @@ a{
     cursor:pointer;
 
     font-size:21px;
-
     font-weight:800;
 
     color:white;
@@ -873,66 +615,11 @@ a{
 }
 
 
-.new-user{
-
-    text-align:center;
-
-    margin-top:25px;
-
-    color:#d1dae8;
-
-    font-size:15px;
-}
-
-
-.new-user span{
-    color:#ffad2e;
-}
-
-
-.whatsapp-btn{
-
-    display:block;
-
-    text-align:center;
-
-    margin-top:25px;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    border:
-        1px solid #83d941;
-
-    color:#8ce45d;
-
-    font-size:18px;
-
-    font-weight:800;
-}
-
-
-.call-btn{
-
-    display:block;
-
-    text-align:center;
-
-    margin-top:22px;
-
-    font-size:20px;
-
-    color:#d7deea;
-}
-
-
 /* =====================================================
    STUDY MATERIAL
 ===================================================== */
 
 .study-section{
-
     margin-top:12px;
 
     display:grid;
@@ -943,117 +630,79 @@ a{
     gap:12px;
 }
 
-
 .study-info{
-
     padding:12px;
-
     text-align:center;
 
     border-radius:12px;
 
-    border:
-        1px solid #235687;
+    border:1px solid #235687;
 
     background:
-        linear-gradient(
-            135deg,
-            #0a1b33,
-            #06101f
-        );
+        linear-gradient(135deg,#0a1b33,#06101f);
 }
 
-
 .study-info h3{
-
     font-size:19px;
-
     letter-spacing:1px;
 }
 
-
 .study-info .sub{
-
     margin-top:4px;
-
     color:#53b5ff;
-
     font-size:14px;
 }
 
-
 .study-info p{
-
     margin:10px auto;
-
     max-width:290px;
 
     font-size:13px;
-
     line-height:1.45;
 
     color:#c0cbdb;
 }
 
-
 .study-btn{
-
     display:inline-block;
 
-    padding:
-        9px 24px;
+    padding:9px 24px;
 
-    border:
-        1px solid #5dafff;
-
+    border:1px solid #5dafff;
     border-radius:7px;
 
     font-weight:700;
 }
 
-
 .study-card{
-
     min-height:140px;
-
     padding:8px;
 
     border-radius:12px;
 
     text-align:center;
 
-    border:
-        1px solid #245789;
+    border:1px solid #245789;
 
     background:
-        linear-gradient(
-            135deg,
-            #0a1c34,
-            #06101e
-        );
+        linear-gradient(135deg,#0a1c34,#06101e);
 
     transition:.3s;
 }
 
-
 .study-card:hover{
-
-    transform:
-        translateY(-5px);
+    transform:translateY(-5px);
 
     box-shadow:
         0 0 20px rgba(0,130,255,.25);
 }
 
-
 .study-image{
-
     height:85px;
 
     border-radius:7px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -1062,13 +711,9 @@ a{
     background:#0c1627;
 }
 
-
 .study-card h4{
-
     margin-top:9px;
-
     font-size:14px;
-
     color:#d9e2ef;
 }
 
@@ -1078,7 +723,6 @@ a{
 ===================================================== */
 
 .features{
-
     margin-top:12px;
 
     display:grid;
@@ -1086,8 +730,7 @@ a{
     grid-template-columns:
         repeat(5,1fr);
 
-    border:
-        1px solid #1f5486;
+    border:1px solid #1f5486;
 
     border-radius:14px;
 
@@ -1096,39 +739,29 @@ a{
     background:#061224;
 }
 
-
 .feature{
-
     padding:14px 12px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     gap:9px;
 
-    border-right:
-        1px solid #2a5888;
+    border-right:1px solid #2a5888;
 
     color:#d7dfeb;
 
     font-size:14px;
-
     text-align:center;
 }
-
 
 .feature:last-child{
     border:none;
 }
 
-
 .feature span{
-
     color:#ffb000;
-
     font-size:22px;
 }
 
@@ -1138,19 +771,15 @@ a{
 ===================================================== */
 
 .footer{
-
     text-align:center;
 
     margin-top:4px;
-
     padding:15px;
 
     color:#aeb9ca;
-
     font-size:14px;
 
-    border:
-        1px solid #174878;
+    border:1px solid #174878;
 
     border-radius:
         0 0 18px 18px;
@@ -1160,43 +789,43 @@ a{
 
 
 /* =====================================================
-   FLOATING CONTACT BUTTONS
+   PREMIUM FLOATING CONTACT BUTTONS
 ===================================================== */
 
 .floating-contact{
-
     position:fixed;
 
     right:20px;
-
     bottom:25px;
 
     z-index:9999;
 
     display:flex;
-
     flex-direction:column;
 
-    gap:12px;
+    gap:14px;
 }
 
 
-.float-btn{
+/* BUTTON */
 
+.float-btn{
     width:58px;
     height:58px;
 
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    font-size:26px;
+    position:relative;
 
-    border:
-        1px solid rgba(255,255,255,.30);
+    font-size:25px;
+
+    color:#ffffff;
+
+    border:2px solid rgba(255,255,255,.25);
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.55);
@@ -1204,21 +833,65 @@ a{
     transition:
         transform .25s ease,
         box-shadow .25s ease;
+
+    animation:
+        floatingPulse 2.5s infinite;
 }
 
+
+/* RIPPLE RING */
+
+.float-btn::before{
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    border:2px solid currentColor;
+
+    opacity:.45;
+
+    animation:
+        ripple 2.2s infinite;
+}
+
+
+/* ICON */
+
+.float-btn i{
+    position:relative;
+    z-index:2;
+
+    transition:
+        transform .25s ease;
+}
+
+
+/* HOVER */
 
 .float-btn:hover{
-
     transform:
-        scale(1.13);
+        translateY(-5px)
+        scale(1.12);
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,.7);
+        0 15px 35px rgba(0,0,0,.75);
+}
+
+.float-btn:hover i{
+    transform:
+        rotate(12deg)
+        scale(1.1);
 }
 
 
-.float-whatsapp{
+/* WHATSAPP */
 
+.float-whatsapp{
     background:
         linear-gradient(
             135deg,
@@ -1226,33 +899,135 @@ a{
             #128c4a
         );
 
-    color:white;
+    box-shadow:
+        0 0 14px rgba(37,211,102,.8),
+        0 8px 25px rgba(0,0,0,.6);
 }
 
+
+/* CALL */
 
 .float-call{
-
     background:
         linear-gradient(
             135deg,
-            #1680ff,
-            #0047a8
+            #2d9cff,
+            #0055b8
         );
 
-    color:white;
+    box-shadow:
+        0 0 14px rgba(45,156,255,.8),
+        0 8px 25px rgba(0,0,0,.6);
 }
 
 
-.float-chat{
+/* CHAT */
 
+.float-chat{
     background:
         linear-gradient(
             135deg,
-            #ff9200,
+            #ff9a00,
             #ff4d00
         );
 
-    color:white;
+    box-shadow:
+        0 0 14px rgba(255,120,0,.8),
+        0 8px 25px rgba(0,0,0,.6);
+}
+
+
+/* LABEL */
+
+.float-btn::after{
+    position:absolute;
+
+    right:72px;
+
+    padding:7px 13px;
+
+    border-radius:7px;
+
+    background:#071426;
+
+    color:#ffffff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    opacity:0;
+
+    transform:
+        translateX(10px);
+
+    pointer-events:none;
+
+    transition:.25s;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+}
+
+
+.float-btn:hover::after{
+    opacity:1;
+
+    transform:
+        translateX(0);
+}
+
+
+/* TOOLTIP TEXT */
+
+.float-chat::after{
+    content:"MESSAGE CHAT";
+}
+
+.float-call::after{
+    content:"CALL NOW";
+}
+
+.float-whatsapp::after{
+    content:"WHATSAPP";
+}
+
+
+/* PULSE */
+
+@keyframes floatingPulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* RIPPLE */
+
+@keyframes ripple{
+
+    0%{
+        transform:scale(1);
+        opacity:.55;
+    }
+
+    100%{
+        transform:scale(1.55);
+        opacity:0;
+    }
+
 }
 
 
@@ -1327,9 +1102,7 @@ a{
     }
 
 
-    /* =============================================
-       HIDE COMPLETE HEADER ON MOBILE
-    ============================================= */
+    /* HIDE HEADER */
 
     .header{
         display:none;
@@ -1342,20 +1115,14 @@ a{
 
 
     .left-panel{
-
         border:none;
-
         border-radius:0;
-
         padding:8px;
-
         background:#030a17;
     }
 
 
-    /* =============================================
-       WELCOME BACKGROUND IMAGE
-    ============================================= */
+    /* WELCOME IMAGE BACKGROUND */
 
     .welcome{
 
@@ -1372,7 +1139,8 @@ a{
         padding:
             40px 15px 35px;
 
-        border-radius:0 0 18px 18px;
+        border-radius:
+            0 0 18px 18px;
 
         overflow:hidden;
 
@@ -1387,7 +1155,6 @@ a{
         url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80");
 
         background-size:cover;
-
         background-position:center;
 
         box-shadow:
@@ -1396,9 +1163,7 @@ a{
 
 
     .welcome-text{
-
         font-size:21px;
-
         letter-spacing:6px;
 
         text-shadow:
@@ -1406,15 +1171,8 @@ a{
     }
 
 
-    .to{
-        font-size:11px;
-    }
-
-
     .welcome h2{
-
         font-size:26px;
-
         line-height:1.25;
 
         text-shadow:
@@ -1423,9 +1181,7 @@ a{
 
 
     .welcome p{
-
         font-size:13px;
-
         max-width:340px;
 
         text-shadow:
@@ -1434,18 +1190,14 @@ a{
 
 
     .orange-line::after{
-
         background:
             rgba(3,10,20,.8);
     }
 
 
     .section-title{
-
         font-size:12px;
-
         letter-spacing:4px;
-
         gap:8px;
 
         margin-top:20px;
@@ -1453,31 +1205,24 @@ a{
 
 
     .repair-grid{
-
         grid-template-columns:1fr;
-
         gap:10px;
     }
 
 
     .repair-card{
-
         min-height:145px;
     }
 
 
     .login-panel{
-
         margin:8px;
-
         padding:20px 15px;
-
         border-radius:16px;
     }
 
 
     .study-section{
-
         grid-template-columns:
             repeat(2,1fr);
 
@@ -1491,15 +1236,12 @@ a{
 
 
     .features{
-
         margin:8px;
-
         grid-template-columns:1fr;
     }
 
 
     .feature{
-
         border-right:none;
 
         border-bottom:
@@ -1513,11 +1255,8 @@ a{
 
 
     .footer{
-
         margin:8px;
-
         border-radius:12px;
-
         font-size:12px;
     }
 
@@ -1525,21 +1264,23 @@ a{
     /* FLOATING BUTTONS */
 
     .floating-contact{
-
         right:14px;
-
         bottom:18px;
-
-        gap:10px;
+        gap:12px;
     }
 
 
     .float-btn{
-
-        width:54px;
-        height:54px;
-
+        width:56px;
+        height:56px;
         font-size:24px;
+    }
+
+
+    /* TOOLTIP ALWAYS HIDE ON MOBILE */
+
+    .float-btn::after{
+        display:none;
     }
 
 }
@@ -1581,7 +1322,7 @@ a{
 
 
 <!-- =====================================================
-     HEADER - DESKTOP / TABLET ONLY
+     HEADER - DESKTOP ONLY
 ===================================================== -->
 
 <div class="header">
@@ -1590,6 +1331,7 @@ a{
 <div class="header-top">
 
 <div class="brand-area">
+
 
 <div class="logo">
 ॐ
@@ -1613,6 +1355,7 @@ Repair | Restore | Resolve
 
 </div>
 
+
 </div>
 
 </div>
@@ -1632,9 +1375,7 @@ Repair | Restore | Resolve
 
 <div class="info-text">
 
-<b>
-19+ Years
-</b>
+<b>19+ Years</b>
 
 <span>
 Of Experience
@@ -1720,7 +1461,7 @@ Support
 
 
 <!-- =====================================================
-     MAIN
+     MAIN LAYOUT
 ===================================================== -->
 
 <div class="main-layout">
@@ -1739,19 +1480,15 @@ Support
 WELCOME
 </div>
 
-
 <div class="to">
 TO
 </div>
-
 
 <h2>
 SHREE VINAYAK IT CARE
 </h2>
 
-
 <div class="orange-line"></div>
-
 
 <p>
 
@@ -1771,15 +1508,12 @@ Contact:
 
 
 
-<!-- REPAIR TITLE -->
+<!-- REPAIR CATALOGUE -->
 
 <div class="section-title">
 REPAIR CATALOGUE
 </div>
 
-
-
-<!-- REPAIR GRID -->
 
 <div class="repair-grid">
 
@@ -1788,11 +1522,17 @@ REPAIR CATALOGUE
 
 <div class="repair-card blue">
 
-<div class="card-icon">💻</div>
+<div class="card-icon">
+💻
+</div>
 
-<div class="card-device">💻</div>
+<div class="card-device">
+💻
+</div>
 
-<h3>LAPTOP REPAIR</h3>
+<h3>
+LAPTOP REPAIR
+</h3>
 
 <p>
 All Brands Supported<br>
@@ -1813,11 +1553,17 @@ Explore →
 
 <div class="repair-card green">
 
-<div class="card-icon">🖥️</div>
+<div class="card-icon">
+🖥️
+</div>
 
-<div class="card-device">🖥️</div>
+<div class="card-device">
+🖥️
+</div>
 
-<h3>DESKTOP REPAIR</h3>
+<h3>
+DESKTOP REPAIR
+</h3>
 
 <p>
 Motherboard & Component<br>
@@ -1838,11 +1584,17 @@ Explore →
 
 <div class="repair-card purple">
 
-<div class="card-icon">🖨️</div>
+<div class="card-icon">
+🖨️
+</div>
 
-<div class="card-device">🖨️</div>
+<div class="card-device">
+🖨️
+</div>
 
-<h3>PRINTER REPAIR</h3>
+<h3>
+PRINTER REPAIR
+</h3>
 
 <p>
 Laser, Inkjet, All-in-One<br>
@@ -1863,11 +1615,17 @@ Explore →
 
 <div class="repair-card orange">
 
-<div class="card-icon">📱</div>
+<div class="card-icon">
+📱
+</div>
 
-<div class="card-device">📱</div>
+<div class="card-device">
+📱
+</div>
 
-<h3>MOBILE / TABLET REPAIR</h3>
+<h3>
+MOBILE / TABLET REPAIR
+</h3>
 
 <p>
 Hardware & Software<br>
@@ -1888,11 +1646,17 @@ Explore →
 
 <div class="repair-card teal">
 
-<div class="card-icon">💾</div>
+<div class="card-icon">
+💾
+</div>
 
-<div class="card-device">💽</div>
+<div class="card-device">
+💽
+</div>
 
-<h3>DATA RECOVERY</h3>
+<h3>
+DATA RECOVERY
+</h3>
 
 <p>
 Recover Deleted, Formatted<br>
@@ -1913,11 +1677,17 @@ Explore →
 
 <div class="repair-card yellow">
 
-<div class="card-icon">⚡</div>
+<div class="card-icon">
+⚡
+</div>
 
-<div class="card-device">🔌</div>
+<div class="card-device">
+🔌
+</div>
 
-<h3>POWER SUPPLY REPAIR</h3>
+<h3>
+POWER SUPPLY REPAIR
+</h3>
 
 <p>
 SMPS, Adapter, DC Supply<br>
@@ -1953,11 +1723,9 @@ Learn | Practice | Master
 </div>
 
 <p>
-
 Access Schematics,
 BoardViews, Repair Guides,
 eBooks and Technical Notes.
-
 </p>
 
 <a href="/study"
@@ -2044,12 +1812,13 @@ eBooks & Notes
 
 </div>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     LOGIN
+     LOGIN PANEL
 ===================================================== -->
 
 <div class="login-panel">
@@ -2106,7 +1875,6 @@ Remember Me
 
 </label>
 
-
 <a href="#">
 Forgot Password?
 </a>
@@ -2127,38 +1895,6 @@ LOGIN →
 </form>
 
 
-
-<div class="new-user">
-
-New User?
-
-<span>
-Create an Account
-</span>
-
-</div>
-
-
-
-<a
-href="https://wa.me/917008541544"
-class="whatsapp-btn">
-
-📱 7008541544 WhatsApp
-
-</a>
-
-
-
-<a
-href="tel:+917008541544"
-class="call-btn">
-
-📞 Call: 70085 41544
-
-</a>
-
-
 </div>
 
 
@@ -2172,65 +1908,30 @@ class="call-btn">
 
 <div class="features">
 
-
 <div class="feature">
-
-<span>
-🛠
-</span>
-
+<span>🛠</span>
 Chip-Level Expertise
-
 </div>
 
-
-
 <div class="feature">
-
-<span>
-🏅
-</span>
-
+<span>🏅</span>
 All Brands Supported
-
 </div>
 
-
-
 <div class="feature">
-
-<span>
-⚡
-</span>
-
+<span>⚡</span>
 Fast & Reliable Service
-
 </div>
 
-
-
 <div class="feature">
-
-<span>
-💰
-</span>
-
+<span>💰</span>
 Affordable Pricing
-
 </div>
-
-
 
 <div class="feature">
-
-<span>
-🚚
-</span>
-
+<span>🚚</span>
 Doorstep Pickup & Delivery
-
 </div>
-
 
 </div>
 
@@ -2241,13 +1942,9 @@ Doorstep Pickup & Delivery
 <div class="footer">
 
 © 2026 SHREE VINAYAK IT CARE
-
-&nbsp; | &nbsp;
-
+|
 WhatsApp: 7008541544
-
-&nbsp; | &nbsp;
-
+|
 All Rights Reserved.
 
 </div>
@@ -2258,36 +1955,34 @@ All Rights Reserved.
 
 
 <!-- =====================================================
-     FLOATING CONTACT BUTTONS
+     PREMIUM FLOATING BUTTONS
 ===================================================== -->
 
 <div class="floating-contact">
 
 
-<!-- INTERNAL CHAT -->
+<!-- CHAT -->
 
 <a
 href="/chat"
 class="float-btn float-chat"
 title="Message Chat">
 
-💬
+<i class="fa-solid fa-comment-dots"></i>
 
 </a>
 
 
-
-<!-- PHONE CALL -->
+<!-- CALL -->
 
 <a
 href="tel:+917008541544"
 class="float-btn float-call"
 title="Call Now">
 
-📞
+<i class="fa-solid fa-phone"></i>
 
 </a>
-
 
 
 <!-- WHATSAPP -->
@@ -2295,9 +1990,10 @@ title="Call Now">
 <a
 href="https://wa.me/917008541544"
 class="float-btn float-whatsapp"
-title="WhatsApp">
+title="WhatsApp"
+target="_blank">
 
-☎️
+<i class="fa-brands fa-whatsapp"></i>
 
 </a>
 
@@ -2317,7 +2013,6 @@ title="WhatsApp">
 
 @app.route("/")
 def home():
-
     return render_template_string(HTML)
 
 
@@ -2328,12 +2023,11 @@ def home():
 @app.route("/login", methods=["POST"])
 def login():
 
-    username = request.form.get("username")
+    username = request.form.get("username", "")
 
     return f"""
     <h2>Login Received</h2>
     <p>Welcome {username}</p>
-    <p>Database login system will be connected next.</p>
     <a href="/">← Back to Home</a>
     """
 
@@ -2345,20 +2039,15 @@ def login():
 @app.route("/chat")
 def chat():
 
-    CHAT_HTML = """
-
+    return """
     <!DOCTYPE html>
-
     <html>
-
     <head>
 
     <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
 
-    <title>
-    SHREE VINAYAK IT CARE - Chat
-    </title>
+    <title>SHREE VINAYAK IT CARE - Chat</title>
 
     <style>
 
@@ -2367,196 +2056,141 @@ def chat():
     }
 
     body{
-
         margin:0;
-
         font-family:Arial;
-
         background:#020814;
-
         color:white;
-
     }
 
     .chat-box{
-
-        max-width:600px;
-
+        max-width:650px;
         margin:auto;
-
-        height:100vh;
+        min-height:100vh;
 
         display:flex;
-
         flex-direction:column;
 
         background:#071226;
-
     }
 
     .chat-header{
-
         padding:20px;
 
         background:#0c2344;
 
         border-bottom:
         1px solid #27639c;
-
     }
 
     .chat-header h2{
-
         margin:0;
-
         color:#ff8a00;
-
-    }
-
-    .chat-header p{
-
-        margin:6px 0 0;
-
-        color:#9ddc7c;
-
     }
 
     .messages{
-
         flex:1;
-
         padding:20px;
-
     }
 
     .support-message{
-
         background:#122b4d;
-
-        padding:12px;
-
-        border-radius:12px;
-
-        max-width:80%;
-
+        padding:15px;
+        border-radius:14px;
+        max-width:85%;
+        line-height:1.5;
     }
 
     .chat-input{
-
         display:flex;
-
         gap:8px;
-
         padding:12px;
-
         background:#08152a;
-
     }
 
     .chat-input input{
-
         flex:1;
-
         padding:14px;
 
         border:none;
-
         border-radius:25px;
 
         background:#10213d;
-
         color:white;
 
         outline:none;
-
     }
 
     .chat-input button{
-
         border:none;
-
         padding:12px 20px;
 
         border-radius:25px;
 
         background:#ff7600;
-
         color:white;
 
         font-weight:bold;
-
+        cursor:pointer;
     }
 
     </style>
 
     </head>
 
-
     <body>
-
 
     <div class="chat-box">
 
+        <div class="chat-header">
 
-    <div class="chat-header">
+            <h2>
+            💬 SHREE VINAYAK IT CARE
+            </h2>
 
-    <h2>
-    💬 SHREE VINAYAK IT CARE
-    </h2>
+            <p>
+            🟢 Support Available
+            </p>
 
-    <p>
-    🟢 Support Available
-    </p>
-
-    </div>
-
-
-    <div class="messages">
-
-    <div class="support-message">
-
-    👨‍🔧 Welcome to SHREE VINAYAK IT CARE.
-
-    <br><br>
-
-    Please write your Laptop, Desktop,
-    Printer, Mobile or Power Supply issue.
-
-    </div>
-
-    </div>
+        </div>
 
 
-    <form
-    class="chat-input"
-    action="/send-message"
-    method="POST">
+        <div class="messages">
 
-    <input
-    type="text"
-    name="message"
-    placeholder="Type your message..."
-    required>
+            <div class="support-message">
 
-    <button type="submit">
+                👨‍🔧 Welcome to SHREE VINAYAK IT CARE.
 
-    Send
+                <br><br>
 
-    </button>
+                Please write your repair issue here.
 
-    </form>
+            </div>
 
+        </div>
+
+
+        <form
+        class="chat-input"
+        method="POST"
+        action="/send-message">
+
+            <input
+            type="text"
+            name="message"
+            placeholder="Type your message..."
+            required>
+
+            <button type="submit">
+            Send
+            </button>
+
+        </form>
 
     </div>
-
 
     </body>
-
     </html>
-
     """
-
-    return CHAT_HTML
 
 
 # =====================================================
@@ -2566,32 +2200,19 @@ def chat():
 @app.route("/send-message", methods=["POST"])
 def send_message():
 
-    message = request.form.get("message")
+    message = request.form.get("message", "")
 
     print("Customer Message:", message)
 
     return f"""
-
     <h2>Message Sent Successfully ✅</h2>
-
-    <p>
-    Your Message:
-    {message}
-    </p>
-
-    <p>
-    SHREE VINAYAK IT CARE will contact you shortly.
-    </p>
-
-    <a href="/chat">
-    ← Back to Chat
-    </a>
-
+    <p>{message}</p>
+    <a href="/chat">← Back to Chat</a>
     """
 
 
 # =====================================================
-# REPAIR PAGES
+# REPAIR SECTIONS
 # =====================================================
 
 @app.route("/laptop")
@@ -2654,7 +2275,7 @@ def ebooks():
 
 
 # =====================================================
-# RUN APPLICATION
+# RUN APP
 # =====================================================
 
 if __name__ == "__main__":
